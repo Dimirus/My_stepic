@@ -14,7 +14,7 @@ symbol = [" ", ",", ".", "!", "?"]
 #f = input()
 def shifr(lan,chif,key,fraze):
     shifred = ''
-    if lan == 'r':
+    if lan == 'ru':
         for i in range(len(fraze)):
             if fraze[i].islower():
                 shifred += rus_lower_alphabet[(rus_lower_alphabet.find(fraze[i]) + key) % len(rus_lower_alphabet)]
@@ -23,23 +23,37 @@ def shifr(lan,chif,key,fraze):
             else:
                 shifred += fraze[i]
                 
-    if lan == 'e':
+    if lan == 'en':
         for i in range(len(fraze)):
             if fraze[i].islower():
                 shifred += en_lower_alphabet[(en_lower_alphabet.find(fraze[i]) + key) % len(en_lower_alphabet)]
             elif fraze[i].isupper():
                 shifred += en_upper_alphabet[(en_upper_alphabet.find(fraze[i]) + key) % len(en_upper_alphabet)]
             else:
-                shifred += fraze[i]
-        
-        
-        
-        
-        
+                shifred += fraze[i]        
     return shifred
-#def deshifr()
-lan = 'e'
+def deshifr(lan,chif,key,fraze):
+    deshifred = ''
+    if lan == 'ru':
+        for i in range(len(fraze)):
+            if fraze[i].islower():
+                deshifred += rus_lower_alphabet[(rus_lower_alphabet.find(fraze[i]) - key) % len(rus_lower_alphabet)]
+            elif fraze[i].isupper():
+                deshifred += rus_upper_alphabet[(rus_upper_alphabet.find(fraze[i]) - key) % len(rus_upper_alphabet)]
+            else:
+                deshifred += fraze[i]
+                
+    if lan == 'en':
+        for i in range(len(fraze)):
+            if fraze[i].islower():
+                deshifred += en_lower_alphabet[(en_lower_alphabet.find(fraze[i]) - key) % len(en_lower_alphabet)]
+            elif fraze[i].isupper():
+                deshifred += en_upper_alphabet[(en_upper_alphabet.find(fraze[i]) - key) % len(en_upper_alphabet)]
+            else:
+                deshifred += fraze[i]        
+    return deshifred
+lan = 'en'
 chif = 'ch'
-key = 3
-f = 'gfif'
-print(shifr(lan,chif,key,f))
+f = 'Hawnj pk swhg xabkna ukq nqj.'
+for key in range(26):
+    print(deshifr(lan,chif,key,f))
