@@ -1,20 +1,28 @@
-en_lower_alphabet = 'abcdefghijklmnopqrstuvwxyz'
-en_upper_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-rus_lower_alphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
-rus_upper_alphabet = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+en_low_let = 'abcdefghijklmnopqrstuvwxyz'
+en_up_let = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+rus_low_let = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
+rus_up_let = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
 symbol = [" ", ",", ".", "!", "?"]
-
-#print("Выберите язык: aнгл=e, рус=r")
-#lan = input()
-#print("Выберите шифрование: шифрование - ch, дешифрование - def")
+#print("Выберите шифрование: шифрование - lock, дешифрование - unlock")
 #chif = input()
 #print("Введите ключ шифрования")
 #key = int(input())
 #print("Введите фразу")
 #f = input()
-def shifr(lan,chif,key,fraze):
-    shifred = ''
-    if lan == 'ru':
+def coder(chif,key,fraze):
+    if chif == lock:
+        key = key
+    else:
+        key = - key
+    coded = ''
+    if 'A' <= fraze[0] <= 'Z' or 'a' <= fraze[0] <= 'z':
+        for i in range(len(fraze)):
+            if fraze[i].islower():
+                shifred += en_lower_alphabet[(en_lower_alphabet.find(fraze[i]) + key) % len(en_lower_alphabet)]
+            elif fraze[i].isupper():
+                shifred += en_upper_alphabet[(en_upper_alphabet.find(fraze[i]) + key) % len(en_upper_alphabet)]
+            else:
+                coded += fraze[i]
         for i in range(len(fraze)):
             if fraze[i].islower():
                 shifred += rus_lower_alphabet[(rus_lower_alphabet.find(fraze[i]) + key) % len(rus_lower_alphabet)]
